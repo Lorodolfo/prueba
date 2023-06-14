@@ -78,15 +78,45 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             height: 60,
             color: Colors.white,
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Icono Mas Mesa....",
-                  style: TextStyle(
-                      color: Colors.deepOrangeAccent,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.only(left: 3),
+                  child: Image.asset(
+                    "assets/Logo.png",
+                    width: 120,
+                    height: 100,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: Container(
+                    width: 80,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 0.2, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                        ),
+                        VerticalDivider(
+                          color: Colors.grey,
+                          thickness: 1.0,
+                        ),
+                        Icon(
+                          Icons.person_2_outlined,
+                          color: Colors.deepOrange,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
