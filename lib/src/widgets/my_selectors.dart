@@ -6,7 +6,7 @@ class MySelectors extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,12 +33,12 @@ class MySelectors extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.only(left: 35),
               child: ContainerTypes(
@@ -61,10 +61,10 @@ class MySelectors extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 15,
         ),
-        const Center(
+        Center(
           child: ContainerTypes(
               ancho: 120,
               icon: Icons.event_note,

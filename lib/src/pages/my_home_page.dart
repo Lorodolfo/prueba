@@ -47,36 +47,155 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                MyReservations(),
-                MySearch(),
-                MySelectors(),
-                /*Container(
-                  child: ListView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [],
+                const MyReservations(),
+                const MySearch(),
+                const MySelectors(),
+                const SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                    color: Colors.white,
                   ),
-                ),*/
-                AspectRatio(
-                  aspectRatio: 4 / 5,
-                  child: MyCarousel(
-                    onPageChanged: (index) {
-                      _currentPage.value = index;
-                    },
-                    isDarkMode: isDarkMode,
-                    onDarkModeChanged: (value) {
-                      setState(() {
-                        isDarkMode = value;
-                      });
-                    },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 20, left: 10),
+                        child: Text(
+                          "¿Parece que no estas en cancun",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, left: 10),
+                        child: Text(
+                          "¿No es correcto?",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, left: 10),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_outlined,
+                              color: Colors.deepOrange,
+                            ),
+                            Text(
+                              "Obtener Ubicacion Actual",
+                              style: TextStyle(
+                                  color: Colors.deepOrange, fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
+                      /*Icons.arrow_right_alt)Container(
+                        //width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Divider(
+                              thickness: 1,
+                              color: Colors.deepOrange,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                          ],
+                        ),
+                      ),*/
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Disponible para la cena",
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: [
+                                Text("Ver todos"),
+                                Icon(Icons.arrow_right_alt),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      AspectRatio(
+                        aspectRatio: 4 / 5,
+                        child: MyCarousel(
+                          onPageChanged: (index) {
+                            _currentPage.value = index;
+                          },
+                          isDarkMode: isDarkMode,
+                          onDarkModeChanged: (value) {
+                            setState(() {
+                              isDarkMode = value;
+                            });
+                          },
+                        ),
+                      ),
+                      ValueListenableBuilder(
+                          valueListenable: _currentPage,
+                          builder: (_, value, w) {
+                            return DotsGuide(
+                                count: imagesList.imageList.length,
+                                currentPage: value);
+                          }),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Comida al aire libre",
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: [
+                                Text("Ver todos"),
+                                Icon(Icons.arrow_right_alt),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      AspectRatio(
+                        aspectRatio: 4 / 5,
+                        child: MyCarousel(
+                          onPageChanged: (index) {
+                            _currentPage.value = index;
+                          },
+                          isDarkMode: isDarkMode,
+                          onDarkModeChanged: (value) {
+                            setState(() {
+                              isDarkMode = value;
+                            });
+                          },
+                        ),
+                      ),
+                      ValueListenableBuilder(
+                          valueListenable: _currentPage,
+                          builder: (_, value, w) {
+                            return DotsGuide(
+                                count: imagesList.imageList.length,
+                                currentPage: value);
+                          }),
+                    ],
                   ),
                 ),
-                ValueListenableBuilder(
-                    valueListenable: _currentPage,
-                    builder: (_, value, w) {
-                      return DotsGuide(
-                          count: imagesList.imageList.length,
-                          currentPage: value);
-                    }),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   margin: const EdgeInsets.only(bottom: 10),
