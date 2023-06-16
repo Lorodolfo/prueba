@@ -29,7 +29,7 @@ class _MyReservationsState extends State<MyReservations> {
                       TextSpan(
                         text: 'mesa',
                         style: TextStyle(
-                            color: Colors.deepOrange,
+                            color: Color.fromARGB(255, 255, 85, 43),
                             fontWeight: FontWeight.bold),
                       ),
                       TextSpan(text: ' en cada lugar'),

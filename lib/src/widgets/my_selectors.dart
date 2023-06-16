@@ -9,7 +9,7 @@ class MySelectors extends StatelessWidget {
     return const Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 35),
@@ -37,7 +37,7 @@ class MySelectors extends StatelessWidget {
           height: 15,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 35),

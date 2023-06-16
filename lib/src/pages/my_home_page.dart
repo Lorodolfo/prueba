@@ -14,7 +14,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final ValueNotifier<int> _currentPage = ValueNotifier(0);
+  final ValueNotifier<int> _currentPageCarousel1 = ValueNotifier(0);
+  final ValueNotifier<int> _currentPageCarousel2 = ValueNotifier(0);
 
   bool isDarkMode = false;
   ImagesList imagesList = ImagesList();
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Positioned.fill(
             //width: double.infinity,
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               height: 750,
               child: Image.asset(
@@ -66,21 +67,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(top: 20, left: 10),
                         child: Text(
                           "¿Parece que no estas en cancun",
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(top: 10, left: 10),
                         child: Text(
                           "¿No es correcto?",
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(top: 10, left: 10),
                         child: Row(
                           children: [
@@ -96,24 +97,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      /*Icons.arrow_right_alt)Container(
-                        //width: MediaQuery.of(context).size.width,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Divider(
-                              thickness: 1,
-                              color: Colors.deepOrange,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                          ],
-                        ),
-                      ),*/
-                      Padding(
+
+                      //width: MediaQuery.of(context).size.width,
+                      Divider(
+                        indent: 2,
+                        thickness: 1,
+                        color: Colors.deepOrange,
+                      ),
+
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         aspectRatio: 4 / 5,
                         child: MyCarousel(
                           onPageChanged: (index) {
-                            _currentPage.value = index;
+                            _currentPageCarousel1.value = index;
                           },
                           isDarkMode: isDarkMode,
                           onDarkModeChanged: (value) {
@@ -147,13 +139,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       ValueListenableBuilder(
-                          valueListenable: _currentPage,
+                          valueListenable: _currentPageCarousel1,
                           builder: (_, value, w) {
                             return DotsGuide(
                                 count: imagesList.imageList.length,
                                 currentPage: value);
                           }),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -176,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         aspectRatio: 4 / 5,
                         child: MyCarousel(
                           onPageChanged: (index) {
-                            _currentPage.value = index;
+                            _currentPageCarousel2.value = index;
                           },
                           isDarkMode: isDarkMode,
                           onDarkModeChanged: (value) {
@@ -187,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       ValueListenableBuilder(
-                          valueListenable: _currentPage,
+                          valueListenable: _currentPageCarousel2,
                           builder: (_, value, w) {
                             return DotsGuide(
                                 count: imagesList.imageList.length,
@@ -196,58 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  margin: const EdgeInsets.only(bottom: 10),
-                  height: 50,
-                  width: 400,
-                  color: isDarkMode ? Colors.grey : Colors.white,
-                  child: Text(
-                    'Texto 1',
-                    style: TextStyle(
-                      color: isDarkMode ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  margin: const EdgeInsets.only(bottom: 10),
-                  height: 50,
-                  width: 400,
-                  color: isDarkMode ? Colors.grey : Colors.white,
-                  child: Text(
-                    'Texto 1',
-                    style: TextStyle(
-                      color: isDarkMode ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  margin: const EdgeInsets.only(bottom: 40),
-                  height: 50,
-                  width: 400,
-                  color: isDarkMode ? Colors.grey : Colors.white,
-                  child: Text(
-                    'Texto 1',
-                    style: TextStyle(
-                      color: isDarkMode ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  margin: const EdgeInsets.only(bottom: 40),
-                  height: 50,
-                  width: 400,
-                  color: isDarkMode ? Colors.grey : Colors.white,
-                  child: Text(
-                    'Texto 1',
-                    style: TextStyle(
-                      color: isDarkMode ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ),
+                Container(),
               ],
             ),
           ),

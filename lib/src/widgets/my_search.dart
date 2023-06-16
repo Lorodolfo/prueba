@@ -25,7 +25,7 @@ class _MySearchState extends State<MySearch> {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
@@ -33,34 +33,45 @@ class _MySearchState extends State<MySearch> {
           height: alturaCont,
           width: MediaQuery.of(context).size.width - ancho,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Icon(Icons.calendar_month_outlined),
-              const SizedBox(width: 5),
-              Text(
-                DateFormat('dd-MMM-yyyy').format(DateTime.now()),
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
+              Row(
+                children: [
+                  const Icon(Icons.calendar_month_outlined),
+                  const SizedBox(width: 5),
+                  Text(
+                    DateFormat('dd-MMM-yyyy').format(DateTime.now()),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  Icon(Icons.keyboard_arrow_down, color: Colors.grey[500]),
+                ],
               ),
-              const SizedBox(width: 5),
-              Icon(Icons.keyboard_arrow_down, color: Colors.grey[500]),
-              const SizedBox(width: 5),
               const SizedBox(
                 height: 40,
                 child: VerticalDivider(
                   thickness: 2,
                 ),
               ),
-              const SizedBox(width: 10),
-              const Icon(Icons.access_time_outlined),
-              const SizedBox(width: 10),
-              const Text(
-                '12:00 AM',
-                style: TextStyle(fontSize: 16),
+              Row(
+                children: [
+                  const Icon(Icons.access_time_outlined),
+                  const SizedBox(width: 10),
+                  const Text(
+                    '12:00 AM',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(width: 18),
+                  Icon(
+                    Icons.keyboard_arrow_down,
+                    color: Colors.grey[500],
+                  ),
+                ],
               ),
-              const SizedBox(width: 18),
-              Icon(Icons.keyboard_arrow_down, color: Colors.grey[500]),
             ],
           ),
         ),
@@ -76,8 +87,8 @@ class _MySearchState extends State<MySearch> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Icon(Icons.person_outline_outlined),
                   SizedBox(width: 10),
                   Text(
@@ -107,7 +118,7 @@ class _MySearchState extends State<MySearch> {
                 Container(
                   child: showText
                       ? const Text(
-                          "Restaurantes, ubicaciones, comidas... ",
+                          "Restaurantes, ubicaciones, comidas",
                           overflow: TextOverflow.ellipsis,
                         )
                       : null,
@@ -120,7 +131,7 @@ class _MySearchState extends State<MySearch> {
           margin: const EdgeInsets.only(top: 15, bottom: 20),
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            color: Colors.deepOrange,
+            color: Color(0xFFFD390E),
             borderRadius: BorderRadius.circular(30),
           ),
           height: alturaCont - 10,

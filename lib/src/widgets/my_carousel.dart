@@ -137,13 +137,15 @@ class DotsGuide extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(count!, (index) {
           return Container(
-            width: 10,
+            width: 40,
             height: 10,
             margin: const EdgeInsets.symmetric(horizontal: 5),
             decoration: BoxDecoration(
-              color: currentPage == index ? Colors.black : Colors.black12,
+              color: currentPage == index ? Colors.black54 : Colors.black12,
               shape:
                   currentPage == index ? BoxShape.rectangle : BoxShape.circle,
+              borderRadius:
+                  currentPage == index ? BorderRadius.circular(5) : null,
             ),
           );
         }),

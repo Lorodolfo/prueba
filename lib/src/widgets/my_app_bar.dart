@@ -81,41 +81,37 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 3),
-                  child: Image.asset(
-                    "assets/Logo.png",
-                    width: 120,
-                    height: 100,
-                  ),
+                Image.asset(
+                  "assets/Logo.png",
+                  width: 120,
+                  height: 100,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 5),
-                  child: Container(
-                    width: 80,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 0.2, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 6),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(
-                          Icons.search,
-                          color: Colors.grey,
-                        ),
-                        VerticalDivider(
-                          color: Colors.grey,
-                          thickness: 1.0,
-                        ),
-                        Icon(
-                          Icons.person_2_outlined,
-                          color: Colors.deepOrange,
-                        ),
-                      ],
-                    ),
+                Container(
+                  margin: const EdgeInsets.only(top: 1),
+                  padding: const EdgeInsets.symmetric(horizontal: 1),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  width: 70,
+                  height: 40,
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                      ),
+                      VerticalDivider(
+                        indent: 3,
+                        endIndent: 3,
+                        color: Colors.black12,
+                      ),
+                      Icon(
+                        Icons.person_2_outlined,
+                        color: Colors.deepOrange,
+                      ),
+                    ],
                   ),
                 ),
               ],
