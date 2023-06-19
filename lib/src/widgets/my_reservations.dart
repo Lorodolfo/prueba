@@ -15,31 +15,45 @@ class _MyReservationsState extends State<MyReservations> {
       child: Column(
         children: [
           Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
               children: [
-                RichText(
-                  text: const TextSpan(
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: Colors.white,
-                    ),
-                    children: [
-                      TextSpan(text: 'Una '),
-                      TextSpan(
-                        text: 'mesa',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 255, 85, 43),
-                            fontWeight: FontWeight.bold),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25.0),
+                      child: RichText(
+                        text: const TextSpan(
+                          style: TextStyle(
+                            fontSize: 36,
+                            color: Colors.white,
+                          ),
+                          children: [
+                            TextSpan(text: 'Una '),
+                            TextSpan(
+                              text: 'mesa',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 255, 85, 43),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            TextSpan(text: ' para ti'),
+                          ],
+                        ),
                       ),
-                      TextSpan(text: ' en cada lugar'),
-                    ],
+                    ),
+                  ],
+                ),
+                const Text(
+                  "en cada lugar",
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ],
             ),
           ),
-          const Divider(),
         ],
       ),
     );

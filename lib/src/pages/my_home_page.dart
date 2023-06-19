@@ -50,9 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 const MyReservations(),
                 const MySearch(),
+                const SizedBox(
+                  height: 40,
+                ),
                 const MySelectors(),
                 const SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -68,21 +71,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 10),
+                        padding: EdgeInsets.only(top: 20, left: 28),
                         child: Text(
-                          "¿Parece que no estas en cancun",
+                          "¿Parece que no estas en cancun?",
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 10, left: 10),
+                        padding: EdgeInsets.only(top: 3, left: 28),
                         child: Text(
                           "¿No es correcto?",
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 10, left: 10),
+                        padding:
+                            EdgeInsets.only(top: 9, left: 19.26, bottom: 16),
                         child: Row(
                           children: [
                             Icon(
@@ -99,14 +103,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
 
                       //width: MediaQuery.of(context).size.width,
-                      Divider(
+                      const Divider(
                         indent: 2,
                         thickness: 1,
-                        color: Colors.deepOrange,
+                        color: Colors.black38,
                       ),
 
                       const Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.only(top: 28.0, left: 18),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -188,7 +192,32 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                Container(),
+                Container(
+                  padding: const EdgeInsets.only(top: 10),
+                  color: const Color(0xFFFAFAFA),
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Experiencias gastronomicas en",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        child: Material(
+                          child: Container(
+                            decoration: BoxDecoration(color: Colors.black),
+                            height: 30,
+                            width: 120,
+                            child: Row(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

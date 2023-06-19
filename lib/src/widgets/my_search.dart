@@ -19,13 +19,16 @@ class _MySearchState extends State<MySearch> {
 
   @override
   Widget build(BuildContext context) {
-    const double ancho = 40;
-    const double alturaCont = 65;
+    const double ancho = 21;
+    const double alturaCont = 50;
 
     return Column(
       children: [
+        const SizedBox(
+          height: 25,
+        ),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+          padding: const EdgeInsets.only(left: 26.5, right: 11.5),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
@@ -77,7 +80,7 @@ class _MySearchState extends State<MySearch> {
         ),
         Container(
           margin: const EdgeInsets.only(top: 15),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.only(left: 25, right: 14.11),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
@@ -90,7 +93,7 @@ class _MySearchState extends State<MySearch> {
               const Row(
                 children: [
                   Icon(Icons.person_outline_outlined),
-                  SizedBox(width: 10),
+                  SizedBox(width: 8),
                   Text(
                     "3 Personas",
                     style: TextStyle(fontSize: 16),
@@ -103,7 +106,7 @@ class _MySearchState extends State<MySearch> {
         ),
         Container(
           margin: const EdgeInsets.only(top: 15),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.only(left: 27, right: 14),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
@@ -131,7 +134,7 @@ class _MySearchState extends State<MySearch> {
           margin: const EdgeInsets.only(top: 15, bottom: 20),
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            color: Color(0xFFFD390E),
+            color: const Color(0xFFFD390E),
             borderRadius: BorderRadius.circular(30),
           ),
           height: alturaCont - 10,

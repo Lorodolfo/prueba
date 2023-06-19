@@ -12,7 +12,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(140);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Container(
             padding: const EdgeInsets.only(right: 10, bottom: 5),
-            height: 40,
+            height: 60,
             color: Colors.blueGrey,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -75,26 +75,27 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            height: 60,
+            padding: const EdgeInsets.only(left: 15, right: 17.7),
+            height: 80,
             color: Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(
                   "assets/Logo.png",
-                  width: 120,
-                  height: 100,
+                  width: 124,
+                  height: 31,
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 1),
-                  padding: const EdgeInsets.symmetric(horizontal: 1),
+                  padding: const EdgeInsets.only(left: 18.67, right: 12),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: Colors.deepOrange),
                   ),
-                  width: 70,
-                  height: 40,
+                  width: 141.23,
+                  height: 50,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -103,13 +104,23 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                         color: Colors.grey,
                       ),
                       VerticalDivider(
-                        indent: 3,
-                        endIndent: 3,
-                        color: Colors.black12,
+                        indent: 4,
+                        endIndent: 4,
+                        color: Colors.black38,
                       ),
-                      Icon(
-                        Icons.person_2_outlined,
-                        color: Colors.deepOrange,
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.grey,
+                            child: Icon(
+                              Icons.person_3_sharp,
+                              color: Colors.deepOrange,
+                            ),
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_down,
+                          ),
+                        ],
                       ),
                     ],
                   ),
