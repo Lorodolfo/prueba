@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba2/src/pages/images.dart';
 
+// ignore: camel_case_types
 class Gastro_Experience extends StatefulWidget {
   final Function(int) onPageChanged;
   final bool isDarkMode;
@@ -16,6 +17,7 @@ class Gastro_Experience extends StatefulWidget {
   State<Gastro_Experience> createState() => _Gastro_ExperienceState();
 }
 
+// ignore: camel_case_types
 class _Gastro_ExperienceState extends State<Gastro_Experience> {
   int currentPage = 0;
   bool isDarkMode = false;

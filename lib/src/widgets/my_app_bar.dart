@@ -32,6 +32,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   "assets/icons/world.svg",
                   height: 16,
                   width: 16,
+                  // ignore: deprecated_member_use
                   color: isDarkMode ? Colors.white : Colors.black,
                 ),
                 Text(
