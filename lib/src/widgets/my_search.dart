@@ -1,20 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:prueba2/src/widgets/persons_picker_modal.dart';
+import 'package:prueba2/src/widgets/time_picker_modal.dart';
 
 class MySearch extends StatefulWidget {
-  const MySearch({super.key});
+  final Function(DateTime, DateTime, int) onSearchRequested;
+  const MySearch({Key? key, required this.onSearchRequested}) : super(key: key);
 
   @override
-  State<MySearch> createState() => _MySearchState();
+  _MySearchState createState() => _MySearchState();
 }
 
 class _MySearchState extends State<MySearch> {
   bool showText = true;
+  int selectedPeople = 2;
+  DateTime _dateTime = DateTime.now();
+  final DateFormat _dateFormat = DateFormat('dd-MM-yyyy');
+  late TimePickerModal _timePickerModal;
+  void handlePeopleSelected(int people) {
+    setState(() {
+      selectedPeople = people;
+    });
+    widget.onSearchRequested(_dateTime, _dateTime, selectedPeople);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _timePickerModal = TimePickerModal(
+      onTimeSelected: _updateDateTime,
+    );
+  }
 
   void toggleText() {
     setState(() {
       showText = !showText;
     });
+  }
+
+  void _updateDateTime(DateTime selectedTime) {
+    setState(() {
+      _dateTime = selectedTime;
+    });
+    widget.onSearchRequested(_dateTime, _dateTime, selectedPeople);
   }
 
   @override
@@ -38,21 +67,24 @@ class _MySearchState extends State<MySearch> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  const Icon(Icons.calendar_month_outlined),
-                  const SizedBox(width: 5),
-                  Text(
-                    DateFormat('dd-MMM-yyyy').format(DateTime.now()),
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                      overflow: TextOverflow.ellipsis,
+              GestureDetector(
+                onTap: _showDatePicker,
+                child: Row(
+                  children: [
+                    SvgPicture.asset("assets/icons/calendar.svg"),
+                    const SizedBox(width: 5),
+                    Text(
+                      _dateFormat.format(_dateTime),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 5),
-                  Icon(Icons.keyboard_arrow_down, color: Colors.grey[500]),
-                ],
+                    const SizedBox(width: 5),
+                    Icon(Icons.keyboard_arrow_down, color: Colors.grey[500]),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 40,
@@ -60,20 +92,34 @@ class _MySearchState extends State<MySearch> {
                   thickness: 2,
                 ),
               ),
-              Row(
-                children: [
-                  const Icon(Icons.access_time_outlined),
-                  const SizedBox(width: 10),
-                  const Text(
-                    '12:00 AM',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const SizedBox(width: 18),
-                  Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.grey[500],
-                  ),
-                ],
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return _timePickerModal;
+                    },
+                  ).then((value) {
+                    if (value != null) {
+                      _updateDateTime(value);
+                    }
+                  });
+                },
+                child: Row(
+                  children: [
+                    SvgPicture.asset("assets/icons/time.svg"),
+                    const SizedBox(width: 10),
+                    Text(
+                      DateFormat.Hm().format(_dateTime),
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                    const SizedBox(width: 18),
+                    Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Colors.grey[500],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -90,15 +136,25 @@ class _MySearchState extends State<MySearch> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Row(
-                children: [
-                  Icon(Icons.person_outline_outlined),
-                  SizedBox(width: 8),
-                  Text(
-                    "3 Personas",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ],
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return PeoplePickerModal(
+                            onPeopleSelected: handlePeopleSelected);
+                      });
+                },
+                child: Row(
+                  children: [
+                    SvgPicture.asset("assets/icons/avatar.svg"),
+                    const SizedBox(width: 8),
+                    Text(
+                      "$selectedPeople personas",
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
               ),
               Icon(Icons.keyboard_arrow_down, color: Colors.grey[500]),
             ],
@@ -130,23 +186,51 @@ class _MySearchState extends State<MySearch> {
             ),
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(top: 15, bottom: 20),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          decoration: BoxDecoration(
-            color: const Color(0xFFFD390E),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          height: alturaCont - 10,
-          width: MediaQuery.of(context).size.width - ancho * 5,
-          child: const Center(
-            child: Text(
-              "¡Buscar Mesa!",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+        GestureDetector(
+          onTap: () {
+            // Realiza la búsqueda cuando se presione el botón.
+            widget.onSearchRequested(_dateTime, _dateTime, selectedPeople);
+          },
+          child: Container(
+            margin: const EdgeInsets.only(top: 15, bottom: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFD390E),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            height: alturaCont - 10,
+            width: MediaQuery.of(context).size.width - ancho * 5,
+            child: const Center(
+              child: Text(
+                "¡Buscar Mesa!",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
             ),
           ),
         ),
       ],
     );
+  }
+
+  void _showDatePicker() async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _dateTime,
+      firstDate: DateTime(2023),
+      lastDate: DateTime(2025),
+    );
+
+    if (picked != null) {
+      setState(() {
+        _dateTime = DateTime(
+          picked.year,
+          picked.month,
+          picked.day,
+          _dateTime.hour,
+          _dateTime.minute,
+        );
+      });
+      widget.onSearchRequested(_dateTime, _dateTime, selectedPeople);
+    }
   }
 }

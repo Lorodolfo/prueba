@@ -1,21 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Money</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Money">
-            <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
-
-</rect>
-            <rect id="Rectangle" stroke="#0C0310" stroke-width="2" stroke-linecap="round" x="4" y="6" width="14" height="10" rx="2">
-
-</rect>
-            <path d="M21,9 L21,17 C21,18.1046 20.1046,19 19,19 L7,19" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
-
-</path>
-            <circle id="Oval" stroke="#0C0310" stroke-width="2" stroke-linecap="round" cx="11" cy="11" r="2">
-
-</circle>
-        </g>
-    </g>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.99998C4.68629 1.99998 2 4.68627 2 7.99998C2 11.3137 4.68629 14 8 14C11.3137 14 14 11.3137 14 7.99998C14 4.68627 11.3137 1.99998 8 1.99998ZM0.5 7.99998C0.5 3.85784 3.85786 0.499979 8 0.499979C12.1421 0.499979 15.5 3.85784 15.5 7.99998C15.5 12.1421 12.1421 15.5 8 15.5C3.85786 15.5 0.5 12.1421 0.5 7.99998Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.95 5.74998C0.95 5.33577 1.28579 4.99998 1.7 4.99998H14.3C14.7142 4.99998 15.05 5.33577 15.05 5.74998C15.05 6.16419 14.7142 6.49998 14.3 6.49998H1.7C1.28579 6.49998 0.95 6.16419 0.95 5.74998Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.95 10.25C0.95 9.83576 1.28579 9.49998 1.7 9.49998H14.3C14.7142 9.49998 15.05 9.83576 15.05 10.25C15.05 10.6642 14.7142 11 14.3 11H1.7C1.28579 11 0.95 10.6642 0.95 10.25Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.02206 0.613705C8.37346 0.832995 8.48056 1.29563 8.26127 1.64704C7.0721 3.55265 6.44165 5.75377 6.44165 7.99998C6.44165 10.2462 7.0721 12.4473 8.26127 14.3529C8.48056 14.7043 8.37346 15.167 8.02206 15.3863C7.67065 15.6055 7.20802 15.4984 6.98873 15.147C5.65091 13.0032 4.94165 10.527 4.94165 7.99998C4.94165 5.47299 5.65091 2.99673 6.98873 0.85292C7.20802 0.501516 7.67065 0.394416 8.02206 0.613705Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.97794 0.613705C8.32935 0.394416 8.79198 0.501516 9.01127 0.85292C10.3491 2.99673 11.0583 5.47299 11.0583 7.99998C11.0583 10.527 10.3491 13.0032 9.01127 15.147C8.79198 15.4984 8.32935 15.6055 7.97794 15.3863C7.62654 15.167 7.51944 14.7043 7.73873 14.3529C8.9279 12.4473 9.55835 10.2462 9.55835 7.99998C9.55835 5.75377 8.9279 3.55265 7.73873 1.64704C7.51944 1.29563 7.62654 0.832995 7.97794 0.613705Z" fill="white"/>
 </svg>

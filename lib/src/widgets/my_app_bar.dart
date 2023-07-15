@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:prueba2/src/widgets/login_modal.dart';
+import 'package:prueba2/src/pages/my_home_page.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool isDarkMode;
@@ -17,6 +19,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.white,
       flexibleSpace: Column(
         children: [
@@ -47,9 +50,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 const SizedBox(width: 5),
                 SvgPicture.asset(
-                  "assets/icons/money.svg",
-                  height: 16,
-                  width: 16,
+                  "assets/icons/currency.svg",
+                  height: 15,
+                  width: 15,
                   color: isDarkMode ? Colors.white : Colors.black,
                 ),
                 Text(
@@ -63,15 +66,16 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   color: isDarkMode ? Colors.white : Colors.black,
                 ),
                 const SizedBox(width: 5),
-                IconButton(
-                  icon: isDarkMode
-                      ? const Icon(Icons.wb_sunny)
-                      : const Icon(Icons.nights_stay),
-                  color: isDarkMode ? Colors.white : Colors.black,
-                  onPressed: () {
+                GestureDetector(
+                  child: SvgPicture.asset(
+                      isDarkMode
+                          ? "assets/icons/check.svg"
+                          : "assets/icons/night.svg",
+                      color: isDarkMode ? Colors.white : Colors.black),
+                  onTap: () {
                     onDarkModeChanged(!isDarkMode);
                   },
-                ),
+                )
               ],
             ),
           ),
@@ -82,10 +86,20 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(
-                  "assets/Logo.png",
-                  width: 124,
-                  height: 31,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MyHomePage(),
+                      ),
+                    );
+                  },
+                  child: Image.asset(
+                    "assets/Logo.png",
+                    width: 124,
+                    height: 31,
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 1),
@@ -93,32 +107,37 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
-                    border: Border.all(color: Colors.deepOrange),
+                    border: Border.all(color: Colors.black26),
                   ),
                   width: 141.23,
                   height: 50,
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.search,
                         color: Colors.grey,
                       ),
-                      VerticalDivider(
+                      const VerticalDivider(
                         indent: 4,
                         endIndent: 4,
                         color: Colors.black38,
                       ),
                       Row(
                         children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.grey,
-                            child: Icon(
-                              Icons.person_3_sharp,
-                              color: Colors.deepOrange,
+                          GestureDetector(
+                            onTap: () {
+                              openDialog(context);
+                            },
+                            child: const CircleAvatar(
+                              backgroundColor: Colors.grey,
+                              child: Icon(
+                                Icons.person_3_sharp,
+                                color: Colors.deepOrange,
+                              ),
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.keyboard_arrow_down,
                           ),
                         ],
@@ -133,4 +152,18 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+
+  void openDialog(BuildContext context) => showDialog(
+        context: context,
+        builder: (BuildContext context) => Dialog(
+          insetPadding:
+              const EdgeInsets.symmetric(horizontal: 8, vertical: 100),
+          backgroundColor: Colors.transparent,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15), color: Colors.white),
+            child: const LoginModal(),
+          ),
+        ),
+      );
 }

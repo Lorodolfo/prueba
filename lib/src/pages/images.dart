@@ -12,11 +12,11 @@ class ImagesList {
 
 class RestaurantsList {
   List<String> restaurantsList = [
-    "Restaurante 0",
-    "Restaurante 1",
-    "Restaurante 2",
-    "Restaurante 3",
-    "Restaurante 4",
+    "Central de Brazil",
+    "Chingon es Restaurante",
+    "Churrascaria",
+    "Drom Social Room",
+    "Santino Satelite",
   ];
 }
 
