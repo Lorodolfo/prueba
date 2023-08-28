@@ -1,12 +1,12 @@
 class SvgList {
   List<String> svgList = [
-    "icons/calendar.svg",
-    "icons/chat.svg",
-    "icons/settings.svg",
-    "icons/star.svg",
-    "icons/calendar.svg",
-    "icons/star.svg",
-    "icons/star.svg",
+    "assets/icons/calendar.svg",
+    "assets/icons/chat.svg",
+    "assets/icons/settings.svg",
+    "assets/icons/star.svg",
+    "assets/icons/calendar.svg",
+    "assets/icons/star.svg",
+    "assets/icons/star.svg",
   ];
 }
 
@@ -48,12 +48,12 @@ class IconColorList {
 
 class LeftIcons {
   List<String> leftIcons = [
-    "notifications/icon_0.png",
-    "notifications/icon_1.png",
-    "notifications/icon_2.png",
-    "notifications/icon_3.png",
-    "notifications/icon_4.png",
-    "notifications/icon_5.png",
-    "notifications/icon_6.png"
+    "assets/notifications/icon_0.png",
+    "assets/notifications/icon_1.png",
+    "assets/notifications/icon_2.png",
+    "assets/notifications/icon_3.png",
+    "assets/notifications/icon_4.png",
+    "assets/notifications/icon_5.png",
+    "assets/notifications/icon_6.png"
   ];
 }

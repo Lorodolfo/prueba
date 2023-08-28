@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart';
 import 'package:prueba2/src/pages/user_profile/user_profile_page.dart';
 import 'package:prueba2/src/widgets/sign_up.dart';
-import 'package:prueba2/src/widgets/successScreen.dart';
 
 class LoginModal extends StatefulWidget {
   const LoginModal({super.key});
@@ -21,84 +20,119 @@ class _LoginModalState extends State<LoginModal> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0, left: 10),
-              child: RichText(
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontSize: 26,
-                    color: Colors.black,
+            Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 20.0,
+                    left: MediaQuery.of(context).size.width * .09,
+                    right: MediaQuery.of(context).size.width * .09,
                   ),
-                  children: [
-                    TextSpan(text: 'Hola! Bienvenidos a '),
-                    TextSpan(
-                      text: '+mesa',
+                  child: RichText(
+                    text: const TextSpan(
                       style: TextStyle(
-                          color: Color.fromARGB(255, 255, 85, 43),
-                          fontWeight: FontWeight.bold),
+                        color: Color(0xFF1f1b2d),
+                        fontSize: 21,
+                        fontFamily: 'Noto Sans',
+                        fontWeight: FontWeight.bold,
+                      ),
+                      children: [
+                        TextSpan(text: 'Hola! Bienvenidos a '),
+                        TextSpan(
+                          text: '+mesa',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontFamily: 'Noto Sans',
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 85, 43),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
+                ),
+              ],
+            ),
+            Positioned(
+              top: 20,
+              right: 20,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  "X",
+                  style: TextStyle(
+                    color: Color(0xFF666276),
+                    fontSize: 20,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                "X",
-                style: TextStyle(color: Colors.black, fontSize: 28),
-              ),
-            )
           ],
         ),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 5.0, left: 10),
-              child: Text(
-                "Reserva los mejores lugares\nahora.",
-                style: TextStyle(
-                  fontSize: 26,
-                  color: Colors.black,
-                ),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * .09,
+                right: MediaQuery.of(context).size.width * .09,
               ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        const Divider(
-          color: Colors.black38,
-          thickness: 2,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Row(
-          children: [
-            const Text(
-              "¿No tienes una cuenta?",
-              style: TextStyle(fontSize: 18, color: Colors.grey),
-            ),
-            GestureDetector(
-              onTap: () {
-                openDialog(context);
-              },
               child: const Text(
-                "Registrate aqui",
+                "Reserva los mejores\nlugares ahora.",
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 255, 85, 43),
+                  color: Color(0xFF1f1b2d),
+                  fontSize: 22,
+                  fontFamily: 'Noto Sans',
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            )
+            ),
           ],
+        ),
+        const SizedBox(
+          height: 37,
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * .09,
+            right: MediaQuery.of(context).size.width * .09,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "¿No tienes una cuenta?",
+                style: TextStyle(
+                  color: Color(0xFF666276),
+                  fontSize: 15,
+                  fontFamily: 'Noto Sans',
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  openDialog(context);
+                },
+                child: const Text(
+                  "Regístrate aquí",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.w300,
+                    color: Color.fromARGB(255, 255, 85, 43),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
         const SizedBox(
           height: 25,
@@ -106,10 +140,10 @@ class _LoginModalState extends State<LoginModal> {
         Container(
           decoration: BoxDecoration(
             color: const Color(0xFF4267B2),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(12),
           ),
-          height: 50,
-          width: 350,
+          height: 45,
+          width: MediaQuery.of(context).size.width * 0.8,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -117,43 +151,58 @@ class _LoginModalState extends State<LoginModal> {
                 padding: const EdgeInsets.only(left: 1.0),
                 child: SvgPicture.asset(
                   "assets/icons/facebook.svg",
-                  height: 30,
-                  width: 30,
+                  height: 20,
+                  width: 20,
                 ),
               ),
               const SizedBox(
-                width: 4,
+                width: 7,
               ),
               const Text(
-                "Iniciar sesion con Facebook",
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                "Iniciar sesión con Facebook",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontFamily: 'Noto Sans',
+                ),
               ),
             ],
           ),
         ),
         const SizedBox(
-          height: 10,
+          height: 20,
         ),
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.black38),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: const Color(0xFFD5D2DC),
+            ),
           ),
-          height: 50,
-          width: 350,
+          height: 45,
+          width: MediaQuery.of(context).size.width * 0.8,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 1.0),
-                child: SvgPicture.asset("assets/icons/google_logo.svg"),
+                child: SvgPicture.asset(
+                  "assets/icons/google_logo.svg",
+                  height: 20,
+                  width: 20,
+                ),
               ),
               const SizedBox(
-                width: 4,
+                width: 7,
               ),
               const Center(
                 child: Text(
                   "Sign with google",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Noto Sans',
+                    color: Color(0xFF3C4043),
+                  ),
                 ),
               ),
             ],
@@ -166,18 +215,24 @@ class _LoginModalState extends State<LoginModal> {
           children: <Widget>[
             Expanded(
               child: Container(
-                  margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                  margin: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: const Divider(
-                    color: Colors.black45,
+                    color: Color(0xFFEFECF3),
                     height: 36,
                   )),
             ),
-            const Text("O"),
+            const Text(
+              "Ó",
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: 'Noto Sans',
+              ),
+            ),
             Expanded(
               child: Container(
-                  margin: const EdgeInsets.only(left: 20.0, right: 10.0),
+                  margin: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: const Divider(
-                    color: Colors.black45,
+                    color: Color(0xFFEFECF3),
                     height: 36,
                   )),
             ),
@@ -186,49 +241,88 @@ class _LoginModalState extends State<LoginModal> {
         const SizedBox(
           height: 10,
         ),
-        Container(
-          padding: const EdgeInsets.only(left: 10),
-          child: const Text("Correo electronico"),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.1),
+              child: const Text(
+                "Correo electronico",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Noto Sans',
+                    color: Color(0xFF1f1b2d),
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
+          ],
         ),
         const SizedBox(
           height: 5,
         ),
-        SizedBox(
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: const Color(0xFFD5D2DC),
+            ),
+          ),
           height: 50,
-          width: 350,
+          width: MediaQuery.of(context).size.width * 0.8,
           child: TextFormField(
             controller: emailController,
             decoration: const InputDecoration(
-                border: OutlineInputBorder(), hintText: "Email"),
+              border: OutlineInputBorder(),
+              //hintText: "Email",
+            ),
             keyboardType: TextInputType.emailAddress,
           ),
         ),
         const SizedBox(
-          height: 10,
+          height: 20,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Contraseña"),
-              Text(
-                "¿Olvidaste tu contraseña?",
-                style: TextStyle(color: Color.fromARGB(255, 255, 85, 43)),
-              ),
-            ],
-          ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.1),
+          child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Contraseña",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Noto Sans',
+                      color: Color(0xFF1f1b2d),
+                      fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  "¿Olvidaste tu contraseña?",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.w300,
+                    color: Color.fromARGB(255, 255, 85, 43),
+                  ),
+                ),
+              ]),
         ),
         const SizedBox(
           height: 5,
         ),
-        SizedBox(
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: const Color(0xFFD5D2DC),
+            ),
+          ),
           height: 50,
-          width: 350,
+          width: MediaQuery.of(context).size.width * 0.8,
           child: TextFormField(
             controller: passwordController,
             decoration: InputDecoration(
-              hintText: "Password",
+              //hintText: "Password",
               border: const OutlineInputBorder(),
               suffix: InkWell(
                 onTap: () {},
@@ -243,7 +337,7 @@ class _LoginModalState extends State<LoginModal> {
             //controller:,
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 40),
         GestureDetector(
           onTap: () {
             login(
@@ -253,17 +347,18 @@ class _LoginModalState extends State<LoginModal> {
           },
           child: Container(
             height: 50,
-            width: 350,
+            width: MediaQuery.of(context).size.width * 0.8,
             decoration: BoxDecoration(
               color: const Color(0xFFFd5631),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: const Center(
               child: Text(
-                "Iniciar Sesion",
+                "Iniciar sesión",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 16,
+                    fontFamily: 'Noto Sans',
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -301,7 +396,7 @@ class _LoginModalState extends State<LoginModal> {
           context,
           MaterialPageRoute(
             builder: (context) =>
-                UserProfilePage(), // Redirigir a UserProfilePage
+                const UserProfilePage(), // Redirigir a UserProfilePage
           ),
         );
       });

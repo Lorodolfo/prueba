@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prueba2/src/pages/user_profile/account/account_options/alerts.dart';
-import 'package:prueba2/src/pages/user_profile/account/account_options/payment_methods.dart';
+import 'package:prueba2/src/pages/user_profile/account/account_options/payment_methods/payment_methods.dart';
 import 'package:prueba2/src/pages/user_profile/account/account_options/personal_info.dart';
 import 'package:prueba2/src/pages/user_profile/account/my_account_card.dart';
 import 'package:prueba2/src/utils/my_account_lists/my_accounts_lists.dart';

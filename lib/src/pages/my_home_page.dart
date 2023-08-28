@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prueba2/src/pages/images.dart';
+//import 'package:prueba2/src/widgets/experiencia.dart';
 import 'package:prueba2/src/widgets/my_app_bar.dart';
 import 'package:prueba2/src/widgets/my_carousel_aire_libre.dart';
 import 'package:prueba2/src/widgets/my_carousel_cena.dart';
-import 'package:prueba2/src/widgets/my_carousel_cena2.dart';
 import 'package:prueba2/src/widgets/my_carousel_experiencia.dart';
 import 'package:prueba2/src/widgets/my_carousel_news.dart';
 import 'package:prueba2/src/widgets/my_carousel_novedades.dart';
 import 'package:prueba2/src/widgets/wellcome_text.dart';
 import 'package:prueba2/src/widgets/my_home_search.dart';
 import 'package:prueba2/src/widgets/my_selectors.dart';
-import 'package:prueba2/src/widgets/home_page_footer.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -29,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final ValueNotifier<int> _currentPageCarousel_news = ValueNotifier(0);
   bool isDarkMode = false;
   ImagesList imagesList = ImagesList();
+
   String generateHeroTag(String baseTag, int index) {
     return '$baseTag$index';
   }
@@ -116,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             SvgPicture.asset("assets/icons/location.svg"),
                             const SizedBox(width: 5),
                             const Text(
-                              "Obtener Ubicacion Actual",
+                              "Obtener ubicacion actual",
                               style: TextStyle(
                                   color: Color(0xFFFF2F01),
                                   fontSize: 14,
@@ -132,13 +135,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         thickness: 0.5,
                         color: Color.fromARGB(255, 19, 17, 17),
                       ),
-                      const Padding(
-                        padding:
-                            EdgeInsets.only(top: 28.0, left: 18, bottom: 19),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 28.0, left: 18, bottom: 19, right: 4),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Disponible para el\nalmuerzo ahora',
                               style: TextStyle(
                                 color: Color(0xFF1E1B2C),
@@ -149,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Ver todos",
                                   style: TextStyle(
                                     color: Color(0xFF666276),
@@ -158,16 +161,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                SizedBox(width: 8),
-                                Icon(Icons.arrow_right_alt),
+                                const SizedBox(width: 8),
+                                Icon(Icons.arrow_right_alt,
+                                    color: Colors.grey.shade700),
                               ],
                             ),
                           ],
                         ),
                       ),
-                      /*MyCarouselCena(
-                        onPageChanged: (index) {
-                          _currentPageCarousel_cena.value = index;
+                      MyCarouselCena(
+                        onPageChanged: (i) {
+                          _currentPageCarousel_cena.value = i;
                         },
                         isDarkMode: isDarkMode,
                         onDarkModeChanged: (value) {
@@ -175,17 +179,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             isDarkMode = value;
                           });
                         },
-                      ),*/
-                      MyCarouselCenaPrueba(
-                        onPageChanged: (index) {
-                          _currentPageCarousel_cena.value = index;
-                        },
-                        isDarkMode: isDarkMode,
-                        onDarkModeChanged: (value) {
-                          setState(() {
-                            isDarkMode = value;
-                          });
-                        },
+                      ),
+                      SizedBox(
+                        height: 9,
                       ),
                       Container(
                         margin: const EdgeInsets.only(top: 17, bottom: 30),
@@ -193,16 +189,19 @@ class _MyHomePageState extends State<MyHomePage> {
                             valueListenable: _currentPageCarousel_cena,
                             builder: (_, value, w) {
                               return DotsGuideCena(
-                                  count: imagesList.imageList.length,
-                                  currentPage: value);
+                                count: 7,
+                                //searchResultsData.length,
+                                currentPage: value,
+                              );
                             }),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.all(18.0),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 18.0, right: 4, top: 18, bottom: 18),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               "Comida al aire libre",
                               style: TextStyle(
                                   color: Color(0xFF1E1B2C),
@@ -212,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Ver todos",
                                   style: TextStyle(
                                     color: Color(0xFF666276),
@@ -221,8 +220,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                SizedBox(width: 8),
-                                Icon(Icons.arrow_right_alt),
+                                const SizedBox(width: 8),
+                                Icon(Icons.arrow_right_alt,
+                                    color: Colors.grey.shade700),
                               ],
                             ),
                           ],
@@ -290,7 +290,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 15,
                       ),
                       Container(
-                        padding: const EdgeInsets.only(left: 18, right: 19),
+                        padding: const EdgeInsets.only(left: 18, right: 4),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -348,9 +348,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
                             ),
-                            const Row(
+                            Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Ver todos",
                                   style: TextStyle(
                                     color: Color(0xFF666276),
@@ -359,8 +359,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                SizedBox(width: 8),
-                                Icon(Icons.arrow_right_alt),
+                                const SizedBox(width: 8),
+                                Icon(
+                                  Icons.arrow_right_alt,
+                                  color: Colors.grey.shade700,
+                                ),
                               ],
                             ),
                           ],
@@ -457,12 +460,23 @@ class _MyHomePageState extends State<MyHomePage> {
                                   currentPage: value);
                             }),
                       ),
+                      //Experiencia prueba
+                      /*ExperienciaPrueba(
+                          onPageChanged: (index) {
+                            _currentPageCarousel_experiencia.value = index;
+                          },
+                          isDarkMode: isDarkMode,
+                          onDarkModeChanged: (value) {
+                            setState(() {
+                              isDarkMode = value;
+                            });
+                          }),*/
                       Container(
                         margin: const EdgeInsets.only(left: 18),
-                        child: const Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               "Que hay de nuevo en\nCancun",
                               style: TextStyle(
                                 color: Color(0xFF1E1B2C),
@@ -473,7 +487,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Row(
                               children: [
-                                Text(
+                                const Text(
                                   "Ver todos",
                                   style: TextStyle(
                                     color: Color(0xFF666276),
@@ -482,13 +496,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                                SizedBox(width: 8),
-                                Icon(Icons.arrow_right_alt),
+                                const SizedBox(width: 8),
+                                Icon(Icons.arrow_right_alt,
+                                    color: Colors.grey.shade700),
                               ],
                             ),
                           ],
                         ),
                       ),
+                      const SizedBox(height: 5),
                       MyCarouselNovedades(
                           onPageChanged: (index) {
                             _currentPageCarousel_novedades.value = index;
@@ -575,12 +591,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           alignment: Alignment.center,
                           child: SizedBox(
                             height: 420,
-                            width: 320,
+                            width: MediaQuery.of(context).size.width * .888,
                             child: Stack(
                               children: [
                                 Image.asset(
                                   "assets/registerImage.png",
-                                  fit: BoxFit.cover,
+                                  width:
+                                      MediaQuery.of(context).size.width * .888,
+                                  fit: BoxFit.fill,
                                 ),
                                 Center(
                                   child: Container(
@@ -662,7 +680,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                       ),
-                      HomePageFooter(),
+                      //HomePageFooter(),
                     ],
                   ),
                 ),

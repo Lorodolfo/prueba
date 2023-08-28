@@ -1,7 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prueba2/src/pages/images.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:prueba2/src/pages/restaurants_details/restaurants_details.dart';
 
 class MyCarouselExperiencia extends StatefulWidget {
   final Function(int) onPageChanged;
@@ -23,71 +26,105 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
   ImagesList imagesList = ImagesList();
   RestaurantsList restaurantsList = RestaurantsList();
   IconsList iconsList = IconsList();
-  double firstCardMargin = 19.0;
-  double cardMargin = 10.0;
+  //double firstCardMargin = 14.0;
+  double firstCardMargin = 7.0;
+  //double cardMargin = 7.5;
+  double cardMargin = 2.5;
   String generateHeroTag(String baseTag, int index) {
     return '$baseTag$index';
   }
 
+  final double desiredWidth = 280.0;
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double viewportFraction = desiredWidth / screenWidth;
     return CarouselSlider.builder(
       itemCount: imagesList.imageList.length,
       itemBuilder: (context, i, index) {
         double horizontalMargin = i == 0 ? firstCardMargin : cardMargin;
         return Container(
-          margin: EdgeInsets.only(left: horizontalMargin, right: cardMargin),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Card(
-              elevation: 5,
-              child: Container(
-                height: 376.00,
-                width: 239.00,
-                color: widget.isDarkMode ? Colors.grey : Colors.white,
-                child: Stack(
+          height: 416,
+          margin: EdgeInsets.only(
+              left: horizontalMargin, right: cardMargin, bottom: 2),
+          padding: EdgeInsets.only(top: 9, bottom: 9, left: 9, right: 9),
+          child: Container(
+            height: 396.00,
+            width: 239.00,
+            decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              shadows: const [
+                BoxShadow(
+                  color: Color(0x1E000000),
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Stack(
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          imagesList.imageList[i],
-                          height: 150.00,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
+                        ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Image.asset(
+                              imagesList.imageList[i],
+                              height: 150.00,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                         Container(
-                          margin: const EdgeInsets.only(top: 7.0, left: 20.0),
+                          margin: const EdgeInsets.only(top: 8.0, left: 20.0),
                           child: const Text(
                             "Degustare",
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Color(0xFF443F56),
-                              fontSize: 14,
+                              //fontSize: 14,
+                              fontSize: 15,
                               fontFamily: 'Noto Sans',
                               fontWeight: FontWeight.w700,
+                              height: 1.4,
                             ),
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.only(top: 2.00, left: 20.0),
+                          margin: const EdgeInsets.only(
+                              top: 4.00, left: 20.0, right: 20.0),
                           child: Row(
                             children: [
                               const Text(
                                 "Bovinos SteakHouse",
                                 style: TextStyle(
                                   color: Color(0xFF443F56),
-                                  fontSize: 13,
+                                  //fontSize: 13,
+                                  fontSize: 14,
                                   fontFamily: 'Noto Sans',
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
                               const SizedBox(
-                                width: 5,
+                                width: 3,
                               ),
                               SvgPicture.asset(
                                 "assets/icons/location.svg",
+                                height: 18,
+                                width: 18,
                                 color: Color(0xFF443F56),
                               ),
                               const SizedBox(
@@ -97,7 +134,8 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
                                 'Cancún',
                                 style: TextStyle(
                                   color: Color(0xFF443F56),
-                                  fontSize: 13,
+                                  //fontSize: 13,
+                                  fontSize: 14,
                                   fontFamily: 'Noto Sans',
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -106,10 +144,15 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.only(top: 4.00, left: 20.0),
+                          margin: const EdgeInsets.only(
+                              top: 4.00, left: 20.0, right: 20.0),
                           child: Row(
                             children: [
-                              SvgPicture.asset("assets/icons/creditCard.svg"),
+                              SvgPicture.asset(
+                                "assets/icons/creditCard.svg",
+                                height: 18,
+                                width: 18,
+                              ),
                               const SizedBox(
                                 width: 4,
                               ),
@@ -118,7 +161,8 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   color: Color(0xFF443F56),
-                                  fontSize: 13,
+                                  //fontSize: 13,
+                                  fontSize: 14,
                                   fontFamily: 'Noto Sans',
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -128,21 +172,26 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
                         ),
                         Container(
                           margin: const EdgeInsets.only(
-                              top: 4.00, left: 20.00, bottom: 10.00),
+                            top: 4.00,
+                            left: 20.00,
+                            //bottom: 14.00
+                            bottom: 7,
+                          ),
                           child: const Text(
                             "Carnes, mariscos y ensaladas",
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Color(0xFF443F56),
-                              fontSize: 13,
+                              //fontSize: 13,
+                              fontSize: 14,
                               fontFamily: 'Noto Sans',
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.only(left: 20.0),
-                          width: 198,
+                          margin: const EdgeInsets.only(left: 20.0, right: 20),
+                          //width: 220,
                           decoration: const ShapeDecoration(
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
@@ -154,17 +203,19 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
                           ),
                         ),
                         const SizedBox(
-                          height: 5.0,
+                          //height: 14.0,
+                          height: 7,
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(left: 20.0),
+                          padding: EdgeInsets.only(left: 20.0, right: 20.0),
                           child: SizedBox(
-                            width: 199,
+                            width: 227,
                             child: Text(
                               'La experiencia Degustare involucra los tres grupos de delicias que ofrece Bovinos...',
                               style: TextStyle(
                                 color: Color(0xFF443F56),
-                                fontSize: 13,
+                                //fontSize: 13,
+                                fontSize: 14,
                                 fontFamily: 'Noto Sans',
                                 fontWeight: FontWeight.w400,
                               ),
@@ -172,7 +223,7 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
                           ),
                         ),
                         const SizedBox(
-                          height: 8.0,
+                          height: 15.0,
                         ),
                         Center(
                           child: Container(
@@ -217,15 +268,17 @@ class _MyCarouselExperienciaState extends State<MyCarouselExperiencia> {
                     ),
                   ],
                 ),
-              ),
+              ],
+
+              //margin: const EdgeInsets.only(left: 0, right: 0),
             ),
           ),
         );
       },
       options: CarouselOptions(
         aspectRatio: 6.3 / 10.0,
-        height: 376,
-        viewportFraction: 0.75,
+        height: 416,
+        viewportFraction: viewportFraction,
         disableCenter: true,
         initialPage: 0,
         padEnds: false,
@@ -255,9 +308,9 @@ class DotsGuideExperiencia extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(count!, (index) {
           return Container(
-            width: 40,
+            width: 25,
             height: 10,
-            margin: const EdgeInsets.symmetric(horizontal: 5),
+            margin: const EdgeInsets.symmetric(horizontal: 3),
             decoration: BoxDecoration(
               color: currentPage == index ? Colors.black54 : Colors.black12,
               shape:

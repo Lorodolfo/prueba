@@ -1,9 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prueba2/src/pages/user_profile/bottom_nav.dart';
-import 'package:prueba2/src/pages/user_profile/routes.dart';
+//import 'package:prueba2/src/pages/user_profile/routes.dart';
 import 'package:prueba2/src/pages/user_profile/user_profile_picture.dart';
-
 import 'package:prueba2/src/widgets/my_app_bar.dart';
 
 class PersonalInfo extends StatefulWidget {
@@ -53,9 +54,11 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: SvgPicture.asset(
-                      "icons/cross.svg",
+                      "assets/icons/cross.svg",
                       height: 30,
                       width: 30,
                     ),
@@ -112,7 +115,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ],
                       ),
                       SvgPicture.asset(
-                        "icons/edit_2.svg",
+                        "assets/icons/edit_2.svg",
                         height: 20,
                         width: 20,
                         color: Colors.grey[800],
@@ -149,7 +152,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ],
                       ),
                       SvgPicture.asset(
-                        "icons/edit_2.svg",
+                        "assets/icons/edit_2.svg",
                         height: 20,
                         width: 20,
                         color: Colors.grey[800],
@@ -298,7 +301,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ],
                       ),
                       SvgPicture.asset(
-                        "icons/edit_2.svg",
+                        "assets/icons/edit_2.svg",
                         height: 20,
                         width: 20,
                         color: Colors.grey[800],
@@ -335,7 +338,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ],
                       ),
                       SvgPicture.asset(
-                        "icons/edit_2.svg",
+                        "assets/icons/edit_2.svg",
                         height: 20,
                         width: 20,
                         color: Colors.grey[800],
@@ -372,7 +375,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ],
                       ),
                       SvgPicture.asset(
-                        "icons/edit_2.svg",
+                        "assets/icons/edit_2.svg",
                         height: 20,
                         width: 20,
                         color: Color(0xFFFF552B),
@@ -537,7 +540,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ],
                       ),
                       SvgPicture.asset(
-                        "icons/edit_2.svg",
+                        "assets/icons/edit_2.svg",
                         height: 20,
                         width: 20,
                         color: Colors.grey[800],
@@ -574,7 +577,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ],
                       ),
                       SvgPicture.asset(
-                        "icons/edit_2.svg",
+                        "assets/icons/edit_2.svg",
                         height: 20,
                         width: 20,
                         color: Colors.grey[800],
@@ -597,7 +600,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SvgPicture.asset("icons/check_2.svg",
+                        SvgPicture.asset("assets/icons/check_2.svg",
                             color: Colors.white),
                         const SizedBox(width: 6),
                         const Text(

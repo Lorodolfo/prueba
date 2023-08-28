@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -64,7 +66,7 @@ class UserProfilePicture extends StatelessWidget {
                   color: Colors.black,
                   onPressed: () {},
                   icon: SvgPicture.asset(
-                    "icons/edit.svg",
+                    "assets/icons/edit.svg",
                     color: Color(0xFF454056),
                   ),
                 ),

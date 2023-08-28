@@ -28,14 +28,6 @@ class _NotificationsCardState extends State<NotificationsCard> {
         decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          /* shadows: const [
-            BoxShadow(
-              color: Color(0x19000000),
-              blurRadius: 15,
-              offset: Offset(0, 0),
-              spreadRadius: 0,
-            )
-          ],*/
         ),
         child: Column(
           children: [
@@ -55,8 +47,10 @@ class _NotificationsCardState extends State<NotificationsCard> {
                         ),
                       ),
                       alignment: Alignment.centerLeft, // Añadido
-                      padding:
-                          const EdgeInsets.only(left: 40, top: 7, right: 15),
+                      padding: const EdgeInsets.only(
+                          left: 40,
+                          //top: 4,
+                          right: 15),
                       child: Text(
                         widget.titulo,
                         style: const TextStyle(
@@ -70,8 +64,10 @@ class _NotificationsCardState extends State<NotificationsCard> {
                     Positioned(
                       left: -8.0,
                       top: -5.0,
-                      child: Image.asset(
-                        widget.leftIcon,
+                      child: Image(
+                        image: AssetImage(
+                          widget.leftIcon,
+                        ),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -79,7 +75,7 @@ class _NotificationsCardState extends State<NotificationsCard> {
                 ),
                 Stack(
                   children: [
-                    SvgPicture.asset("icons/bell.svg",
+                    SvgPicture.asset("assets/icons/bell.svg",
                         height: 25, width: 23.92),
                     Positioned(
                       right: 0.0,

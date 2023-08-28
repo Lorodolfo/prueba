@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:intl/intl.dart';
 
 class TimePickerModal extends StatefulWidget {
@@ -43,7 +43,7 @@ class _TimePickerModalState extends State<TimePickerModal> {
         return Dialog(
           child: SizedBox(
             height: 400,
-            width: 50,
+            width: 70,
             child: ListView.builder(
               itemCount: timeIntervals.length,
               itemBuilder: (BuildContext context, int index) {
@@ -51,7 +51,12 @@ class _TimePickerModalState extends State<TimePickerModal> {
                 final isSelected = time == selectedTime;
 
                 return ListTile(
-                  title: Text(DateFormat.Hm().format(time)),
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(DateFormat.Hm().format(time)),
+                    ],
+                  ),
                   tileColor: isSelected ? Colors.blue : null,
                   onTap: () {
                     setState(() {
@@ -86,10 +91,10 @@ class _TimePickerModalState extends State<TimePickerModal> {
         _selectTime(context);
       },
       child: Dialog(
-        insetPadding: const EdgeInsets.symmetric(horizontal: 140),
+        insetPadding: const EdgeInsets.only(left: 189, right: 33),
         child: SizedBox(
           height: 400,
-          width: 50,
+          width: 70,
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: timeIntervals.length,
@@ -98,10 +103,16 @@ class _TimePickerModalState extends State<TimePickerModal> {
                 final isSelected = time == selectedTime;
                 return GestureDetector(
                   child: ListTile(
-                    title: Center(
-                      child: Text(
-                        DateFormat.Hm().format(time),
-                      ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          DateFormat.Hm().format(time),
+                        ),
+                      ],
                     ),
                     tileColor: isSelected ? Colors.blue : null,
                     onTap: () {

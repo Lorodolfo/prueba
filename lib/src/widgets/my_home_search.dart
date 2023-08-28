@@ -64,7 +64,15 @@ class _MyHomeSearchState extends State<MyHomeSearch> {
                 child: Row(
                   children: [
                     SvgPicture.asset("assets/icons/calendar.svg"),
-                    const SizedBox(width: 5),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width <= 380
+                          ? 10
+                          : MediaQuery.of(context).size.width <= 393
+                              ? 14
+                              : MediaQuery.of(context).size.width <= 499
+                                  ? 22
+                                  : 44,
+                    ),
                     Text(
                       DateFormat('dd-MMM-yyyy').format(_dateTime),
                       style: const TextStyle(
@@ -102,7 +110,15 @@ class _MyHomeSearchState extends State<MyHomeSearch> {
                 child: Row(
                   children: [
                     SvgPicture.asset("assets/icons/time.svg"),
-                    const SizedBox(width: 10),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width <= 380
+                          ? 10
+                          : MediaQuery.of(context).size.width <= 393
+                              ? 14
+                              : MediaQuery.of(context).size.width <= 499
+                                  ? 22
+                                  : 44,
+                    ),
                     Text(
                       DateFormat.Hm().format(_dateTime),
                       style: const TextStyle(
@@ -138,7 +154,15 @@ class _MyHomeSearchState extends State<MyHomeSearch> {
               Row(
                 children: [
                   SvgPicture.asset("assets/icons/avatar.svg"),
-                  const SizedBox(width: 8),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width <= 380
+                        ? 10
+                        : MediaQuery.of(context).size.width <= 393
+                            ? 14
+                            : MediaQuery.of(context).size.width <= 499
+                                ? 22
+                                : 44,
+                  ),
                   const Text(
                     "2 Personas",
                     style: TextStyle(
@@ -201,7 +225,7 @@ class _MyHomeSearchState extends State<MyHomeSearch> {
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              color: const Color(0xFFFD390E),
+              color: const Color(0xFFFF552B),
               borderRadius: BorderRadius.circular(40),
             ),
             height: alturaCont - 10,

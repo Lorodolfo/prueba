@@ -29,137 +29,211 @@ class _SignUpModalState extends State<SignUpModal> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: RichText(
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.black,
+            Row(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 20.0,
+                    left: MediaQuery.of(context).size.width * 0.08,
+                    right: MediaQuery.of(context).size.width * 0.08,
                   ),
-                  children: [
-                    TextSpan(text: 'Hola! Bienvenidos a '),
-                    TextSpan(
-                      text: '+mesa',
+                  child: RichText(
+                    text: const TextSpan(
                       style: TextStyle(
-                          color: Color.fromARGB(255, 255, 85, 43),
-                          fontWeight: FontWeight.bold),
+                        color: Color(0xFF1f1b2d),
+                        fontSize: 21,
+                        fontFamily: 'Noto Sans',
+                        fontWeight: FontWeight.bold,
+                      ),
+                      children: [
+                        TextSpan(text: 'Hola! Bienvenidos a '),
+                        TextSpan(
+                          text: '+mesa',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontFamily: 'Noto Sans',
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 85, 43),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
+                ),
+              ],
+            ),
+            Positioned(
+              top: 20,
+              right: 20,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  "X",
+                  style: TextStyle(
+                    color: Color(0xFF666276),
+                    fontSize: 20,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                "X",
-                style: TextStyle(color: Colors.black, fontSize: 28),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.08,
+                right: MediaQuery.of(context).size.width * 0.08,
               ),
-            )
+              child: const Text(
+                "Reserva los mejores\nlugares ahora.",
+                style: TextStyle(
+                  color: Color(0xFF1f1b2d),
+                  fontSize: 22,
+                  fontFamily: 'Noto Sans',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ],
         ),
         const SizedBox(
-          height: 10,
-        ),
-        const Divider(
-          thickness: 2,
-          color: Colors.black45,
-        ),
-        const SizedBox(
-          height: 10,
+          height: 35,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: Row(
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.08,
+          ),
+          child: const Row(
             children: [
-              SvgPicture.asset("assets/icons/check.svg"),
-              const SizedBox(
-                width: 3.0,
+              Icon(Icons.check_circle_outline,
+                  color: Color(0xFFfd5631), size: 15),
+              SizedBox(
+                width: 5.0,
               ),
-              const Text(
-                "Reservar los mejores lugares al instante",
+              Text(
+                "Soporte en cada reservación",
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
+                    color: Color(0xFF666276),
+                    fontSize: 16,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.w400),
               )
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: Row(
-            children: [
-              SvgPicture.asset("assets/icons/check.svg"),
-              const SizedBox(
-                width: 3.0,
-              ),
-              const Text(
-                "Soporte en cada reservacion",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-              )
-            ],
+          padding: EdgeInsets.only(
+            top: 7,
+            left: MediaQuery.of(context).size.width * 0.08,
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: Row(
+          child: const Row(
             children: [
-              SvgPicture.asset("assets/icons/check.svg"),
-              const SizedBox(
-                width: 3.0,
+              Icon(Icons.check_circle_outline,
+                  color: Color(0xFFfd5631), size: 15),
+              SizedBox(
+                width: 5.0,
               ),
-              const Text(
+              Text(
                 "Reseña tus lugares favoritos",
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
+                    color: Color(0xFF666276),
+                    fontSize: 16,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.w400),
               )
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: Row(
+          padding: EdgeInsets.only(
+            top: 7,
+            left: MediaQuery.of(context).size.width * 0.08,
+          ),
+          child: const Row(
             children: [
-              SvgPicture.asset("assets/icons/check.svg"),
-              const SizedBox(
-                width: 3.0,
+              Icon(Icons.check_circle_outline,
+                  color: Color(0xFFfd5631), size: 15),
+              SizedBox(
+                width: 5.0,
               ),
-              const Text(
-                "Gana puntos en cada reservacion",
+              Text(
+                "Gana puntos en cada reservación",
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
+                    color: Color(0xFF666276),
+                    fontSize: 16,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.w400),
               )
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: Row(
+          padding: EdgeInsets.only(
+            top: 7,
+            left: MediaQuery.of(context).size.width * 0.08,
+          ),
+          child: const Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SvgPicture.asset("assets/icons/check.svg"),
-              const SizedBox(
-                width: 3.0,
+              Icon(Icons.check_circle_outline,
+                  color: Color(0xFFfd5631), size: 15),
+              SizedBox(
+                width: 5.0,
               ),
-              const Text(
+              Text(
                 "Miles de horarios disponibles con\ngrandes descuentos",
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
+                    color: Color(0xFF666276),
+                    fontSize: 16,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.w400),
+              )
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 35,
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.08,
+            right: MediaQuery.of(context).size.width * 0.08,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "¿Ya tienes una cuenta?",
+                style: TextStyle(
+                  color: Color(0xFF666276),
+                  fontSize: 15,
+                  fontFamily: 'Noto Sans',
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  "Iniciar sesión",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Noto Sans',
+                    fontWeight: FontWeight.w300,
+                    color: Color.fromARGB(255, 255, 85, 43),
+                  ),
                 ),
               )
             ],
@@ -169,87 +243,82 @@ class _SignUpModalState extends State<SignUpModal> {
           height: 25,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 5.0),
-          child: Row(
-            children: [
-              const Text(
-                "¿Ya tienes una cuenta?",
-                style: TextStyle(color: Colors.grey),
-              ),
-              const SizedBox(
-                width: 5.0,
-              ),
-              GestureDetector(
-                child: const Text(
-                  "Iniciar sesión",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 255, 85, 43),
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.08),
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color(0xFF4267B2),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            height: 45,
+            //width: MediaQuery.of(context).size.width * 0.8,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 1.0),
+                  child: SvgPicture.asset(
+                    "assets/icons/facebook.svg",
+                    height: 20,
+                    width: 20,
                   ),
                 ),
-              )
-            ],
+                const SizedBox(
+                  width: 7,
+                ),
+                const Text(
+                  "Regístrate con Facebook",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontFamily: 'Noto Sans',
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(
-          height: 5,
+          height: 20,
         ),
-        Container(
-          decoration: BoxDecoration(
-            color: const Color(0xFF4267B2),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          height: 50,
-          width: 250,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 1.0),
-                child: SvgPicture.asset(
-                  "assets/icons/facebook.svg",
-                  height: 30,
-                  width: 30,
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.08),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: const Color(0xFFD5D2DC),
+              ),
+            ),
+            height: 45,
+            //width: MediaQuery.of(context).size.width * 0.8,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 1.0),
+                  child: SvgPicture.asset(
+                    "assets/icons/google_logo.svg",
+                    height: 20,
+                    width: 20,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                width: 4,
-              ),
-              const Text(
-                "Registrate con Facebook",
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.black38),
-          ),
-          height: 50,
-          width: 2500,
-          child: Row(
-            children: [
-              const SizedBox(
-                width: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 2.0),
-                child: SvgPicture.asset("assets/icons/google_logo.svg"),
-              ),
-              const SizedBox(
-                width: 30,
-              ),
-              const Center(
-                child: Text(
-                  "Registrate con google",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
+                const SizedBox(
+                  width: 7,
                 ),
-              ),
-            ],
+                const Center(
+                  child: Text(
+                    "Regístrate con Google",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Noto Sans',
+                      color: Color(0xFF3C4043),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(
@@ -259,235 +328,377 @@ class _SignUpModalState extends State<SignUpModal> {
           children: <Widget>[
             Expanded(
               child: Container(
-                  margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                  margin: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: const Divider(
-                    color: Colors.black45,
+                    color: Color(0xFFEFECF3),
                     height: 36,
                   )),
             ),
-            const Text("OR"),
+            const Text(
+              "OR",
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: 'Noto Sans',
+              ),
+            ),
             Expanded(
               child: Container(
-                  margin: const EdgeInsets.only(left: 20.0, right: 10.0),
+                  margin: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: const Divider(
-                    color: Colors.black45,
+                    color: Color(0xFFEFECF3),
                     height: 36,
                   )),
             ),
           ],
         ),
         const SizedBox(
-          height: 10,
+          height: 20,
         ),
-        Container(
-          padding: const EdgeInsets.only(left: 10),
-          child: const Text("Nombre completo"),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        SizedBox(
-          height: 50,
-          width: 350,
-          child: TextFormField(
-            controller: fullNameController,
-            decoration: const InputDecoration(
-                border: OutlineInputBorder(), hintText: "Nombre y apellido"),
-            keyboardType: TextInputType.name,
-
-            //controller:,
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Text("Correo electronico"),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        SizedBox(
-          height: 50,
-          width: 350,
-          child: TextFormField(
-            controller: emailController,
-            decoration: const InputDecoration(
-              hintText: "Email",
-              border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.emailAddress,
-            //controller:,
-          ),
-        ),
-        const SizedBox(height: 10),
-        SizedBox(
-          height: 70,
-          width: 350,
-          child: IntlPhoneField(
-              controller: phoneController,
-              initialCountryCode: "MX",
-              decoration: const InputDecoration(
-                labelText: "Phone number",
-                border: OutlineInputBorder(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.08),
+              child: const Text(
+                "Nombre completo",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Noto Sans',
+                    color: Color(0xFF1f1b2d),
+                    fontWeight: FontWeight.w700),
               ),
-              keyboardType: TextInputType.phone,
-              onCountryChanged: (phoneCountry) {
-                setState(() {
-                  phoneExtension = phoneCountry.dialCode!;
-                  codeCountry = phoneCountry.code!;
-                });
-              }),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Text("Contraseña"),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        SizedBox(
-          height: 50,
-          width: 350,
-          child: TextField(
-            controller: passwordController,
-            decoration: const InputDecoration(
-              labelText: "Contraseña",
-              border: OutlineInputBorder(),
             ),
-            keyboardType: TextInputType.text,
-            obscureText: true,
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Text("Confirmar contraseña"),
+          ],
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
-        SizedBox(
-          height: 50,
-          width: 350,
-          child: TextField(
-            controller: confirmPasswordController,
-            decoration: const InputDecoration(
-              labelText: "Confirmar contraseña",
-              border: OutlineInputBorder(),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.08),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: const Color(0xFFD5D2DC),
+              ),
             ),
-            keyboardType: TextInputType.text,
-            obscureText: true,
+            height: 50,
+            //width: MediaQuery.of(context).size.width * 0.8,
+            child: TextFormField(
+              controller: fullNameController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                //hintText: "Nombre y apellido",
+              ),
+              keyboardType: TextInputType.name,
+
+              //controller:,
+            ),
           ),
         ),
         const SizedBox(
           height: 20,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Checkbox(
-                value: isTerminos,
-                activeColor: const Color(0xFFFd5631),
-                onChanged: (newBool) {
-                  setState(() {
-                    isTerminos = newBool!;
-                    isTerminosAccepted = newBool!;
-                  });
-                }),
-            const SizedBox(
-              width: 5,
-            ),
-            RichText(
-              text: const TextSpan(
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.08),
+              child: const Text(
+                "Correo electrónico",
                 style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-                children: [
-                  TextSpan(text: 'Al unirme acepto los'),
-                  TextSpan(
-                    text: 'Terminos del\nservicio',
-                    style: TextStyle(
-                        color: Color(0xFFFd5631), fontWeight: FontWeight.bold),
-                  ),
-                  TextSpan(
-                    text: 'y el',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'Aviso de privacidad',
-                    style: TextStyle(
-                        color: Color(0xFFFd5631), fontWeight: FontWeight.bold),
-                  ),
-                ],
+                    fontSize: 14,
+                    fontFamily: 'Noto Sans',
+                    color: Color(0xFF1f1b2d),
+                    fontWeight: FontWeight.w700),
               ),
             ),
           ],
         ),
         const SizedBox(
+          height: 5,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.08),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: const Color(0xFFD5D2DC),
+              ),
+            ),
+            height: 50,
+            //width: MediaQuery.of(context).size.width * 0.8,
+            child: TextFormField(
+              controller: emailController,
+              decoration: const InputDecoration(
+                //hintText: "Email",
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.emailAddress,
+              //controller:,
+            ),
+          ),
+        ),
+        const SizedBox(
           height: 20,
         ),
-        IgnorePointer(
-          ignoring: !isTerminosAccepted,
-          child: GestureDetector(
-            onTap: () {
-              final String phoneNumber = phoneController.text.toString();
-              _userService.registerUser(
-                fullNameController.text.toString(),
-                emailController.text.toString(),
-                passwordController.text.toString(),
-                confirmPasswordController.text.toString(),
-                phoneNumber,
-                phoneExtension,
-                codeCountry,
-                isTerminos!,
-              );
-              showDialog(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  content: Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(5)),
-                    height: 30,
-                    width: 80,
-                    child: const Center(
-                      child: Text("Usuario registrado con exito"),
-                    ),
-                  ),
-                ),
-              );
-              Future.delayed(const Duration(seconds: 1), () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const UserProfilePage(),
-                  ),
-                );
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.08,
+          ),
+          child: IntlPhoneField(
+            decoration: InputDecoration(
+              labelText: 'Ingrese el número',
+              border: OutlineInputBorder(
+                borderSide: BorderSide(),
+              ),
+            ),
+            controller: phoneController,
+            initialCountryCode: "MX",
+            keyboardType: TextInputType.phone,
+            onCountryChanged: (phoneCountry) {
+              setState(() {
+                phoneExtension = phoneCountry.dialCode;
+                codeCountry = phoneCountry.code;
               });
             },
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              height: 50,
-              width: 300,
-              decoration: BoxDecoration(
-                color:
-                    isTerminosAccepted ? const Color(0xFFFd5631) : Colors.grey,
-                borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.08),
+              child: const Text(
+                "Contraseña",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Noto Sans',
+                    color: Color(0xFF1f1b2d),
+                    fontWeight: FontWeight.w700),
               ),
-              child: const Center(
-                child: Text(
-                  "Registrate",
+            ),
+            const SizedBox(
+              width: 4,
+            ),
+            const Text(
+              "(Mínimo 8 caracteres)",
+              style: TextStyle(
+                  fontSize: 14,
+                  fontFamily: 'Noto Sans',
+                  color: Color(0xFF9691A4),
+                  fontWeight: FontWeight.w700),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.08),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: const Color(0xFFD5D2DC),
+              ),
+            ),
+            height: 50,
+            //width: MediaQuery.of(context).size.width * 0.8,
+            child: TextField(
+              controller: passwordController,
+              decoration: const InputDecoration(
+                labelText: "Contraseña",
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.text,
+              obscureText: true,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.08),
+              child: const Text(
+                "Confirmar contraseña",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'Noto Sans',
+                    color: Color(0xFF1f1b2d),
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * .08),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: const Color(0xFFD5D2DC),
+              ),
+            ),
+            height: 50,
+            width: MediaQuery.of(context).size.width * 0.8,
+            child: TextField(
+              controller: confirmPasswordController,
+              decoration: const InputDecoration(
+                labelText: "Confirmar contraseña",
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.text,
+              obscureText: true,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.08),
+          child: Row(
+            children: [
+              Checkbox(
+                  value: isTerminos,
+                  activeColor: const Color(0xFFFd5631),
+                  onChanged: (newBool) {
+                    setState(() {
+                      isTerminos = newBool!;
+                      isTerminosAccepted = newBool;
+                    });
+                  }),
+              const SizedBox(
+                width: 5,
+              ),
+              RichText(
+                text: const TextSpan(
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    fontFamily: 'Noto Sans',
+                    color: Color(0xFF666276),
+                    fontWeight: FontWeight.w300,
+                  ),
+                  children: [
+                    TextSpan(text: 'Al unirme acepto los'),
+                    TextSpan(
+                      text: 'Terminos del\nServicio',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Noto Sans',
+                        color: Color(0xFFFd5631),
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'y el',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Noto Sans',
+                        color: Color(0xFF666276),
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' aviso de privacidad',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Noto Sans',
+                        color: Color(0xFFFd5631),
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.08),
+          child: IgnorePointer(
+            ignoring: !isTerminosAccepted,
+            child: GestureDetector(
+              onTap: () {
+                final String phoneNumber = phoneController.text.toString();
+                _userService.registerUser(
+                  fullNameController.text.toString(),
+                  emailController.text.toString(),
+                  passwordController.text.toString(),
+                  confirmPasswordController.text.toString(),
+                  phoneNumber,
+                  phoneExtension,
+                  codeCountry,
+                  isTerminos!,
+                );
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    content: Container(
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                      height: 30,
+                      width: 80,
+                      child: const Center(
+                        child: Text("Usuario registrado con exito"),
+                      ),
+                    ),
+                  ),
+                );
+                Future.delayed(const Duration(seconds: 1), () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UserProfilePage(),
+                    ),
+                  );
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 50,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: isTerminosAccepted
+                      ? const Color(0xFFFd5631)
+                      : Colors.grey,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Center(
+                  child: Text(
+                    "Registrarse",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Noto Sans',
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

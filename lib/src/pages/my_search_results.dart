@@ -157,9 +157,12 @@ class _MySearchResultsState extends State<MySearchResults> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  MiniContainers(),
-                                  MiniContainers(),
-                                  MiniContainers(),
+                                  MiniContainers(
+                                      hora: '12:00', porcentaje: '20'),
+                                  MiniContainers(
+                                      hora: '12:00', porcentaje: '20'),
+                                  MiniContainers(
+                                      hora: '12:00', porcentaje: '20'),
                                 ],
                               ),
                             ),

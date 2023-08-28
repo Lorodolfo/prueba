@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prueba2/src/pages/images.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:prueba2/src/utils/api_services.dart';
+//import 'package:prueba2/src/utils/api_services.dart';
 
 class MyCarouselNews extends StatefulWidget {
   final Function(int) onPageChanged;
@@ -24,39 +24,57 @@ class _MyCarouselNewsState extends State<MyCarouselNews> {
   ImagesList imagesList = ImagesList();
   RestaurantsList restaurantsList = RestaurantsList();
   IconsList iconsList = IconsList();
-  double firstCardMargin = 19.0;
-  double cardMargin = 10.0;
+  //double firstCardMargin = 18.0;
+  //double cardMargin = 8.0;
+  //double firstCardMargin = 14.0;
+  double firstCardMargin = 7.0;
+  //double cardMargin = 7.5;
+  double cardMargin = 2.5;
   String generateHeroTag(String baseTag, int index) {
     return '$baseTag$index';
   }
 
+  final double desiredWidth = 338.0;
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double viewportFraction = desiredWidth / screenWidth;
     return CarouselSlider.builder(
       itemCount: restaurantsList.restaurantsList.length,
       itemBuilder: (context, i, index) {
         double horizontalMargin = i == 0 ? firstCardMargin : cardMargin;
         return Container(
-          margin: EdgeInsets.only(left: horizontalMargin, right: cardMargin),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Card(
-              elevation: 5,
-              child: Container(
-                height: 320.00,
-                width: 360.00,
-                color: widget.isDarkMode ? Colors.grey : Colors.white,
-                child: Stack(
+          padding: EdgeInsets.only(top: 9, bottom: 9, left: 9, right: 9),
+          margin: EdgeInsets.only(
+              left: horizontalMargin, right: cardMargin, bottom: 3),
+          height: 380.00,
+          child: Container(
+            height: 360.00,
+            width: 338.00,
+            decoration: ShapeDecoration(
+              color: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+            ),
+            child: Column(
+              children: [
+                Stack(
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          "assets/latestNews.jpg",
-                          height: 200.00,
-                          width: double.infinity,
-                          fit: BoxFit.fitWidth,
+                        ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                          child: Image.asset(
+                            "assets/latestNews.jpg",
+                            height: 200.00,
+                            width: double.infinity,
+                            fit: BoxFit.fitWidth,
+                          ),
                         ),
                         Container(
                             margin: const EdgeInsets.only(
@@ -112,8 +130,8 @@ class _MyCarouselNewsState extends State<MyCarouselNews> {
                                     children: [
                                       SvgPicture.asset(
                                         "assets/icons/calendar.svg",
-                                        height: 13,
-                                        width: 13,
+                                        height: 14,
+                                        width: 14,
                                       ),
                                       const SizedBox(
                                         width: 3,
@@ -130,7 +148,11 @@ class _MyCarouselNewsState extends State<MyCarouselNews> {
                                       const SizedBox(
                                         width: 3,
                                       ),
-                                      SvgPicture.asset("assets/icons/chat.svg"),
+                                      SvgPicture.asset(
+                                        "assets/icons/chat.svg",
+                                        height: 14,
+                                        width: 14,
+                                      ),
                                       const SizedBox(
                                         width: 3,
                                       ),
@@ -173,15 +195,15 @@ class _MyCarouselNewsState extends State<MyCarouselNews> {
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
           ),
         );
       },
       options: CarouselOptions(
         aspectRatio: 1,
-        height: 320,
-        viewportFraction: 0.9,
+        height: 340,
+        viewportFraction: viewportFraction,
         disableCenter: true,
         initialPage: 0,
         padEnds: false,
@@ -211,9 +233,9 @@ class DotsGuideNews extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(count!, (index) {
           return Container(
-            width: 40,
+            width: 25,
             height: 10,
-            margin: const EdgeInsets.symmetric(horizontal: 5),
+            margin: const EdgeInsets.symmetric(horizontal: 3),
             decoration: BoxDecoration(
               color: currentPage == index ? Colors.black54 : Colors.black12,
               shape:

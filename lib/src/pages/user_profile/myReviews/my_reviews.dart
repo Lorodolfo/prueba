@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prueba2/src/pages/images.dart';
@@ -95,7 +97,7 @@ class _MyReviewsState extends State<MyReviews> {
                     Row(
                       children: [
                         SizedBox(
-                          width: 70,
+                          width: 75,
                           height: 150,
                           child: Container(
                             padding: const EdgeInsets.only(top: 20),
@@ -139,7 +141,7 @@ class _MyReviewsState extends State<MyReviews> {
                                     Row(
                                       children: [
                                         SvgPicture.asset(
-                                          "icons/bookmark.svg",
+                                          "assets/icons/bookmark.svg",
                                           color: const Color(0xFF5C586B),
                                         ),
                                         const Text(
@@ -172,35 +174,35 @@ class _MyReviewsState extends State<MyReviews> {
                               Row(
                                 children: [
                                   SvgPicture.asset(
-                                    "icons/star.svg",
+                                    "assets/icons/star.svg",
                                     color: const Color(0xFFFF552B),
                                   ),
                                   const SizedBox(
                                     width: 4.0,
                                   ),
                                   SvgPicture.asset(
-                                    "icons/star.svg",
+                                    "assets/icons/star.svg",
                                     color: const Color(0xFFFF552B),
                                   ),
                                   const SizedBox(
                                     width: 4.0,
                                   ),
                                   SvgPicture.asset(
-                                    "icons/star.svg",
+                                    "assets/icons/star.svg",
                                     color: const Color(0xFFFF552B),
                                   ),
                                   const SizedBox(
                                     width: 4.0,
                                   ),
                                   SvgPicture.asset(
-                                    "icons/star.svg",
+                                    "assets/icons/star.svg",
                                     color: const Color(0xFFFF552B),
                                   ),
                                   const SizedBox(
                                     width: 4.0,
                                   ),
                                   SvgPicture.asset(
-                                    "icons/star.svg",
+                                    "assets/icons/star.svg",
                                     color: const Color(0xFFFF552B),
                                   ),
                                 ],
@@ -371,7 +373,7 @@ class _MyReviewsState extends State<MyReviews> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SvgPicture.asset(
-                            "icons/VerticalFilter.svg",
+                            "assets/icons/VerticalFilter.svg",
                             color: const Color(0xFF5C586B),
                           ),
                           const SizedBox(width: 4),
@@ -447,7 +449,7 @@ class _MyReviewsState extends State<MyReviews> {
                       child: Row(
                         children: [
                           SvgPicture.asset(
-                            "icons/like.svg",
+                            "assets/icons/like.svg",
                             color: const Color(0xFF9691A4),
                             height: 18,
                           ),
@@ -553,7 +555,7 @@ class _MyReviewsState extends State<MyReviews> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SvgPicture.asset(
-                                    "icons/like.svg",
+                                    "assets/icons/like.svg",
                                     color: const Color(0xFF9691A4),
                                     height: 18,
                                   ),

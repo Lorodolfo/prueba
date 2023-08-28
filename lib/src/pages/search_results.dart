@@ -15,6 +15,7 @@ class _SearchResultsState extends State<SearchResults> {
   bool isDarkMode = false;
   List<dynamic> searchResultsData = [];
 
+/*
   @override
   void initState() {
     super.initState();
@@ -31,7 +32,7 @@ class _SearchResultsState extends State<SearchResults> {
     } catch (e) {
       print('Error al obtener los resultados de búsqueda: $e');
     }
-  }
+  }*/
 
   void handleSearchRequested(
       DateTime startDate, DateTime endDate, int selectedPeople) {
